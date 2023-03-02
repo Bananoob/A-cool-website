@@ -1,15 +1,37 @@
-const list = document.getElementById("list");
-const nav = document.getElementById("nav");
+// Definding some variables
+const navItemsP = document.querySelectorAll("#navitems a p")
+let isExpanded = false;
+let expandnavwidth = "expandnavwidth 0.25s ease";
+let reducenavwidth = "reducenavwidth 0.25s ease";
+let startobjects = "startobjects 0.25s ease";
+let fadeup = "fadeup 0.3s ease";
 
-if (nav.style.width == "100px") {
-  list.addEventListener("click", function () {
-    nav.style.animation = "unset"
-    nav.style.animation = "expandnavwidth 0.3s ease";
-    nav.style.width = "200px";
-  });
-} else if (nav.style.width == "200px") {
-  list.addEventListener("click", function() {
-    nav.style.animation = "reduceNavWidth 0.3s ease";
+// Add an event listener to check if the list button is pressed
+list.addEventListener("click", function () {
+  if (isExpanded) {
+    nav.style.animation = reducenavwidth;
     nav.style.width = "100px";
-  });
-}
+    pp.style.display = "none";
+    isExpanded = false;
+  } else {
+    nav.style.animation = expandnavwidth;
+    nav.style.width = "200px";
+    navItemsP.forEach(p => console.log(p.textContent));
+    isExpanded = true;
+  }
+});
+
+// Start animations
+navitems.addEventListener("animationend", function () {
+  navitems.style.opacity = "100%";
+});
+
+github.addEventListener("animationend", function () {
+  github.style.opacity = "100%";
+});
+
+navfooter.addEventListener("animationend", function () {
+  navfooter.style.opacity = "100%";
+});
+
+// 38

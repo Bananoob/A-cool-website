@@ -1,70 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+
 :root {
-    --clr-default: #ffffff;
-    --clr-accent: #141419;
-    --clr-icons: #666666;
-    --clr-smile: #ECBE4B;
+    --clr-default: #474787;
+    --clr-accent: #2c2c54;
+    --clr-icons: #625A4E;
+    --clr-light: #EBEBE7;
 }
 
 * {
     padding: 0;
     margin: 0;
     list-style-type: none;
+    font-family: 'Poppins', sans-serif;
 }
 
 ion-icon {
     font-size: 24px;
 }
 
+body {
+    display: flex;
+    background-color: var(--clr-default);
+}
+
+/* Nav */
 nav {
     width: 100px;
     height: 100vh;
-    background: var(--clr-accent);
     display: flex;
-    flex-direction: column;
+    background-color: var(--clr-accent);
+    animation: startnav 0.4s ease;
     align-items: center;
-    animation: startnav 1s ease;
+    flex-direction: column;
+}
+
+nav a {
+    cursor: pointer;
+}
+
+nav #github {
+    color: black;
+    margin: 50px 0 0 0;
+    opacity: 0%;
+    animation: startobjects 0.4s ease 0.4s;
+    transition: all 0.25s ease;
+}
+
+nav #github:hover {
+    transform: scale(1.2);
+    color: var(--clr-light);
+}
+
+nav #github ion-icon {
+    font-size: 32px;
 }
 
 nav #navitems {
     display: flex;
+    justify-content: center;
+    /* align-items: center; */
     flex-direction: column;
-    align-items: center;
+    opacity: 0%;
+    animation: startobjects 0.4s ease 0.4s;
 }
 
-nav #smile {
-    color: var(--clr-smile);
-    margin: 40px 0 10px 0;
-    transition: all 0.2s ease;
+nav #navitems a {
+    margin: 50px 0 0 0;
+    height: 24px;
+    padding: 10px;
+    display: flex;
+    transition: all 0.25s ease;
+    border-radius: 50%;
 }
 
-nav #smile:hover {
-    transform: scale(1.2);
+nav #navitems a:hover {
+    background-color: #fffff730;
 }
 
-nav a {
-    margin: 30px 0 0 0;
-    color: var(--clr-icons);
-    cursor: pointer;
+nav #navitems a p {
+    margin-left: 10px;
+    transition: all 0.25s ease;
+    display: none;
 }
 
-nav .navfooter {
+nav #navfooter {
     position: absolute;
     bottom: 30px;
+    opacity: 0%;
+    animation: startobjects 0.4s ease 0.4s;
+    transition: all 0.25s ease;
 }
 
-@keyframes animation1 {
+
+/* Section */
+section {
+    width: 100%;
+    height: 100vh;
+    background: var(--clr-default);
+}
+
+section p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes startnav {
     from {
-        transform: translateX(-200%);
+        transform: translateX(-100%);
     } to {
         transform: translateX(0px);
     }
 }
 
-@keyframes startnav {
+@keyframes startobjects {
     from {
-        margin: 0 -100px;
+        opacity: 0%;
+        transform: translateX(-100%)
     } to {
-        margin: 0;
+        opacity: 100%;
+        transform: translateX(0)
     }
 }
 
@@ -88,10 +143,20 @@ nav .navfooter {
     }
 }
 
-@keyframes reduceNavWidth {
+@keyframes reducenavwidth {
     from {
         width: 200px;
     } to {
         width: 100px;
+    }
+}
+
+@keyframes fadeup {
+    from {
+        opacity: 0%;
+        transform: translateY(10px);
+    } to {
+        opacity: 100%;
+        transform: translateY(0);
     }
 }
